@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUDS-SYS</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <!-- on va diviser notre interface crud en 3 parties ( head(title ..)+input( les entrées) +output( tableaua de sortie))-->
@@ -22,11 +23,12 @@
                 <input type="text" id="title" placeholder="title">
 
                    <div class="price">
-                      <input type="number" id="price" placeholder="price">
-                      <input type="number" id="taxes" placeholder="taxes">
-                      <input type="number" id="ads" placeholder="ads">
-                      <input type="number" id="discount" placeholder="discount">
-                      <small id="total">32525</small>
+                    <!--onkeyup() : il suffit que j'insert un numero elle active la fonction getTotal()-->
+                      <input  onkeyup="getTotal()"   type="number" id="price" placeholder="price">
+                      <input  onkeyup="getTotal()"   type="number" id="taxes" placeholder="taxes">
+                      <input  onkeyup="getTotal()"   type="number" id="ads" placeholder="ads">
+                      <input  onkeyup="getTotal()"   type="number" id="discount" placeholder="discount">
+                      <small id="total"> 0 </small>
                     </div>
 
                 <input type="number" id="count" placeholder="count">
@@ -39,13 +41,17 @@
 
                    <div class="searchBlock">
                 
-                      <input type="text"  id="search" placeholder="search">
+                      <input  onkeyup="searchData(this.value)" type="text"  id="search" placeholder="search">
 
                       <div class="btnSearch">
-                        <button id="searchTitle">Search By Title</button>
-                        <button id="searchGategory">Search By Gategory</button>
+                        <button onclick="getSearchMood(this.id)" id="searchTitle">Search By Title</button>
+                        <button onclick="getSearchMood(this.id)" id="searchGategory">Search By Gategory</button>
                       </div>
 
+                    </div>
+                    <div id="deleteAll">
+
+                      
                     </div>
                    <Table>
                      <tr>
@@ -61,33 +67,9 @@
                         <th>delete</th>
                      </tr>
 
-                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Samsung</td>
-                            <td>20000</td>
-                            <td>250</td>
-                            <td>100</td>
-                            <td>200</td>
-                            <td>100</td>
-                            <td>200</td>
-                            <td><button id="update">update</button></td>
-                            <td><button id="delete">delete</button></td>
-                         </tr>
-
-                         <tr>
-                            <td>1</td>
-                            <td>Samsung</td>
-                            <td>20000</td>
-                            <td>250</td>
-                            <td>100</td>
-                            <td>100</td>
-                            <td>200</td>
-                            <td>200</td>
-                            <td><button id="update">update</button></td>
-                            <td><button id="delete">delete</button></td>
-                         </tr>      
-
+                     <tbody id="tbody">
+                     
+                       
                      </tbody>
 
                    </Table> 
@@ -96,5 +78,6 @@
 
 
     </div>
+    <script src="functions.js"></script>
 </body>
 </html>
