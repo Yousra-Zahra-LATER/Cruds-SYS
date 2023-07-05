@@ -48,11 +48,11 @@ width: 20%;
 }
 
 .price small{ /*or we can write #total directly*/   
-     background:rgb(241, 181, 201);
+     background:#ff0808;
     border-radius: 4px;
     padding: 5px 2px;
 }
-/*on fait une chose before total*/
+/* before total on ajout le contenu ( le mot) : Total */
 #total::before{
 content: 'Total: ';
 
@@ -79,10 +79,18 @@ letter-spacing: 1px;
 display:flex ;
 justify-content: space-between;
 }
+
 .btnSearch button{
 width: 45%;
 }
 
+#deleteAll{
+ margin:20px 0;
+
+}
+table button:hover {
+    transform:  scale(1.1);
+}
 table{
 
 width: 100%;
